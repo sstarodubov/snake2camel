@@ -23,7 +23,7 @@ public class Main {
         final var originFileName = args[0];
         String cur;
         ByteBuffer upd;
-        final var lineBuffers = new ArrayList<ByteBuffer>(300);
+        final var lineBuffers = new ArrayList<ByteBuffer>(256);
         try (final var sc = new Scanner(new File(originFileName))) {
             while (sc.hasNextLine()) {
                 cur = sc.nextLine();
@@ -57,7 +57,7 @@ public class Main {
             return ByteBuffer.wrap((s + '\n').getBytes(StandardCharsets.UTF_8));
         }
 
-        final var buf = ByteBuffer.allocate(250);
+        final var buf = ByteBuffer.allocate(256);
         int i = 1;
 
         buf.put((byte) s.charAt(0));
